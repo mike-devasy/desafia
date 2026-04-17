@@ -1,0 +1,101 @@
+.header {
+	position: fixed;
+	width: 100%;
+	z-index: 150;
+	pointer-events: none;
+	padding-left: 40px;
+	padding-top: 50px;
+	padding-bottom: 13px;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 64px;
+		z-index: 1;
+		@media (max-width: toEm($mobileSmall)) {
+			background: linear-gradient(180deg, #181824 40.74%, rgba(24, 24, 36, 0) 100%);
+			mix-blend-mode: multiply;
+			opacity: 0.68;
+		}
+	}
+
+	@media (width > toEm(1100)) {
+		display: none;
+	}
+	@media (max-width: toEm($mobile)) {
+		[data-fls-header-scroll] .--header-scroll {
+			opacity: 0;
+		}
+	}
+	@media (max-width: toEm(1100)) {
+		padding-left: 0;
+	}
+	@media (max-width: toEm($mobile)) {
+		@include adaptiveValue("padding-top", 47, 16);
+	}
+	@media (max-width: toEm($mobileSmall)) {
+		padding-left: 0;
+	}
+	&__container {
+		@media (max-width: toEm(1100)) {
+			display: block;
+			@include adaptiveValue("padding-right", 40, 15, 0, 1100, 375);
+			@include adaptiveValue("padding-left", 40, 15, 0, 1100, 375);
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&__logo {
+		position: relative;
+		z-index: 2;
+		@include adaptiveValue("max-width", 430, 365, 0, $maxWidth, 1200);
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		pointer-events: auto;
+		@media (max-width: toEm(1180)) {
+			@include adaptiveValue("max-width", 460, 174);
+		}
+	}
+	&__image {
+		@media (max-width: toEm($mobileSmall)) {
+			object-position: 10% 0;
+		}
+	}
+	&__logo-text {
+		// @include adaptiveValue("width", 350, 140);
+	}
+	&__title {
+		display: none;
+		@media (max-width: toEm(1100)) {
+			pointer-events: auto;
+			z-index: 2;
+			display: inline-block;
+			font-family: $secondFontFamily;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 1.2;
+			letter-spacing: -0.02em;
+			text-transform: uppercase;
+			text-decoration: underline;
+			transition: color 0.5s;
+			color: var(--button-color);
+			@media (any-hover: hover) {
+				&:hover {
+					color: var(--secondary);
+					@media (max-width: toEm($mobileSmall)) {
+						color: var(--button-color);
+					}
+				}
+			}
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			color: var(--secondary);
+			max-width: 60px;
+			text-decoration: none;
+		}
+	}
+}

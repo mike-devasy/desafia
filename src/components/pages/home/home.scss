@@ -1,0 +1,859 @@
+.page--home {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(135deg, #222233 0%, #111122 100%);
+	box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42);
+
+	overflow: hidden;
+ @media (max-width: toEm(1550)){
+		height:100dvh;
+	
+ }
+ @media (max-width: toEm(1300)){
+	    height:auto;
+ }
+}
+
+.hero {
+	min-height: 100dvh;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	align-items: center;
+	background: url("@img/bg-desktop.jpg") top center / cover no-repeat;
+	display: flex;
+@media (max-width: toEm(1550)){
+ 
+    overflow: hidden;
+    position: relative;
+ 
+}
+	@media (max-width: toEm(1200)) {
+		background: url("@img/bg-tablet.jpg") top center / cover no-repeat;
+	}
+	@media (max-width: toEm(1150)) {
+		padding-right: 0px;
+	}
+	@media (max-width: toEm(1100)) {
+		height: auto;
+		display: block;
+
+		background: url("@img/bg-mobile.jpg") top center / 100% auto no-repeat;
+		// background-color: #0b0b15;
+		// overflow: visible;
+	}
+	@media (max-width: toEm($mobileSmall)) {
+		background: url("@img/bg-small.jpg") top center / 100% auto no-repeat;
+	}
+	&__container {
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: space-between;
+		margin: 0 auto;
+		padding-right: 30px;
+		padding-left: 30px;
+		@media (max-width: toEm(1100)) {
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	&__content {
+		flex: 0 1 50%;
+		@media (max-width: toEm(1100)) {
+			visibility: hidden;
+		}
+	}
+	&__logo {
+		@include adaptiveValue("padding-left", 60, 5);
+		padding-left: 60px;
+		@include adaptiveValue("width", 429, 365, 0, $maxWidth, 1200);
+	}
+	&__logo-image{
+		@media (max-width: toEm(1550)){
+			padding-top: 80px;  
+		}
+	}
+	&__title {
+		font-style: italic;
+		font-family: $secondFontFamily;
+		font-weight: 900;
+		@include adaptiveValue("font-size", 76, 40, 0, $maxWidth, 1200);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: #fff;
+		@media (max-width: toEm(1800)) {
+		}
+		@media (max-width: toEm(1200)) {
+			@include adaptiveValue("font-size", 40, 30);
+		}
+	}
+}
+
+// ==========================================================================
+.bonus-card {
+	border: 2px solid var(--button-color);
+	border-radius: 12px;
+	padding: 16px;
+	width: 100%;
+	color: var(--secondary);
+	background: var(--bg-input-color);
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 20px;
+	@media (max-width: toEm(1100)) {
+		display: grid;
+		grid-template-columns: 40px 1fr auto;
+		gap: 8px;
+	}
+
+	@media (max-width: toEm($mobileSmall)) {
+		padding-block: 6px;
+		margin-bottom: 14px;
+	}
+	&__icon {
+		display: flex;
+		flex-shrink: 1;
+		width: 40px;
+		height: 60px;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 6px;
+		margin-right: 16px;
+		@media (max-width: toEm(1100)) {
+			margin-right: 0;
+			text-align: left;
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			gap: 2px;
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	&__badge {
+		font-family: $fontFamily;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: #fff;
+		background-color: var(--button-color);
+		border-radius: 4px;
+		padding: 2px 4px;
+	}
+
+	&__label {
+		font-size: 12px;
+		letter-spacing: -0.02em;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		strong {
+			color: var(--button-color);
+		}
+		@media (max-width: toEm(1100)) {
+			& br {
+				display: none;
+			}
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			font-size: 16px;
+		}
+	}
+
+	&__arrow-wrapper {
+	}
+}
+
+.form {
+	width: min(100%, 556px);
+	z-index: 4;
+	transition: transform 0.3s;
+	@media (max-width: toEm(1550)) {
+		padding-top: 0px;
+		transform-origin: center right;
+		transform: scale(0.8);
+		// bottom:20px;
+	}
+	@media (max-width: toEm(1200)) {
+		// padding-top: 50px;
+	}
+	@media (max-width: toEm(1100)) {
+		transform: scale(1);
+		transform-origin: center;
+		padding-top: 20px;
+		width: 100%;
+	}
+
+	&__content {
+		padding: 24px 65px 47px;
+		max-width: 100%;
+		border-radius: 28px;
+		background: linear-gradient(135deg, #222233 0%, #111122 100%);
+		box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42);
+
+		@media (max-width: toEm(1100)) {
+			@include adaptiveValue("padding-right", 110, 15);
+			@include adaptiveValue("padding-left", 110, 15);
+			padding-bottom: 30px;
+			border-radius: 0;
+			padding-top: 42px;
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			padding-top: 15px;
+		}
+	}
+
+	&__shell-top {
+		display: none;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 34px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid rgba(140, 140, 181, 0.62);
+		margin-bottom: 45px;
+		@media (max-width: toEm(1100)) {
+			display: none;
+		}
+	}
+
+	&__shell-brand {
+		display: inline-flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 8px;
+		margin: 0 auto 0 0;
+	}
+
+	&__shell-brand-icon {
+		width: 48px;
+		height: 48px;
+		object-fit: contain;
+		flex-shrink: 0;
+	}
+
+	&__shell-brand-text {
+		font-style: italic;
+		font-weight: 800;
+		font-size: 40px;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--secondary);
+	}
+
+	&__shell-action {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 0 0 24px;
+		width: 24px;
+		height: 24px;
+	}
+
+	&__shell-action--next {
+		position: relative;
+		&:hover {
+			.form__shell-support {
+				background-color: var(--secondary);
+			}
+		}
+	}
+
+	&__shell-support {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: var(--button-color);
+		-webkit-mask: url("@img/svgicons/headphones.svg") center / contain no-repeat;
+		mask: url("@img/svgicons/headphones.svg") center / contain no-repeat;
+	}
+	&__title {
+		font-family: $secondFontFamily;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: var(--secondary);
+		@include adaptiveValue("font-size", 22, 14, 0, $mobile, 375);
+
+		@media (min-width: toEm(1200)) {
+			padding-right: 40px;
+		}
+		@media (max-width: toEm($mobile)) {
+		}
+	}
+	&__content-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		@media (max-width: toEm($mobileSmall)) {
+			margin-bottom: 14px;
+		}
+	}
+	&__content-login {
+		color: var(--button-color);
+		font-size: 14px;
+		line-height: 1.2;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		white-space: nowrap;
+		transition: all 0.5s;
+		cursor: pointer;
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--secondary);
+			}
+		}
+		@media (max-width: toEm(1100)) {
+			display: none;
+		}
+	}
+	&__content-support {
+		display: none;
+		@media (any-hover: hover) {
+			&:hover {
+				.form__content-support-icon {
+					background-color: var(--button-color);
+				}
+			}
+		}
+		@media (max-width: toEm(1100)) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 48px;
+			height: 48px;
+			border-radius: 12px;
+			background: var(--bg-input-color);
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			background: transparent;
+		}
+	}
+	&__content-support-icon {
+		display: none;
+		transition: all 0.5s;
+
+		@media (max-width: toEm(1100)) {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			flex-basis: 20px;
+			background: var(--secondary);
+			-webkit-mask: url("@img/svgicons/headphones.svg") center / contain no-repeat;
+			mask: url("@img/svgicons/headphones.svg") center / contain no-repeat;
+		}
+	}
+}
+
+.form-column {
+	position: relative;
+	z-index: 5;
+	display: none;
+	@media (max-width: toEm(1099.98)) {
+		display: block;
+		width: 100%;
+		@include adaptiveValue("margin-top", 240, 30, 0, 1100, 480);
+		position: relative;
+		z-index: 5;
+		margin-bottom: -20px;
+		@media (max-width:toEm($mobileSmall)){
+			 margin-top: 70px; 
+		}
+	}
+	&--big {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding-bottom: 30px;
+		@media (max-width: toEm(1550)){
+			padding-bottom: 0px;
+		}
+ 
+		@media (max-width: toEm(1100)) {
+			display: none;
+		}
+		&__bunner {
+			position: relative;
+			display: flex;
+			position: relative;
+			z-index: 1;
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			@include adaptiveValue("padding-left", 130, 35);
+
+			@include adaptiveValue("min-height", 317, 220, 0, $maxWidthContainer, 1100);
+ 
+		@media (max-width: toEm(1200)){
+				padding-top: 70px;
+					align-items: start;
+	 
+		}
+		@media (max-width: toEm(1100)) {
+			display: none;
+		}
+		}
+		&__line {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			object-fit: fill;
+			pointer-events: none;
+			right: 0;
+			left: 0;
+		}
+	}
+	&__bunner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		display: none;
+		@media (max-width: toEm(1100)) {
+			position: relative;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: auto;
+			margin-bottom: -20px;
+			@media (max-width: toEm($mobileSmall)) {
+				margin-bottom: -10px !important;
+			}
+		}
+	}
+	&__line {
+		position: relative;
+		inset: 0;
+		width: 100%;
+		object-fit: fill;
+		pointer-events: none;
+		@media (max-width: toEm(1100)) {
+			width: 100%;
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+		}
+	}
+	&__title {
+		position: relative;
+		z-index: 5;
+		font-style: italic;
+		font-family: $secondFontFamily;
+		font-weight: 900;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: #fff;
+		@include adaptiveValue("font-size", 73, 36, 0, $maxWidthContainer, 1100);
+		@media (max-width: toEm(1100)) {
+			position: absolute; // Текст центрируем внутри линии
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 90%;
+			text-align: center;
+			margin: 0;
+			font-size: 36px;
+
+			@media (max-width: toEm(600)) {
+				@include adaptiveValue("font-size", 120, 16);
+			}
+			@media (max-width: toEm(375)) {
+				font-size: 16px !important;
+			}
+		}
+	}
+}
+.register-form {
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("gap", 20, 14, $maxWidth, 768);
+	@include adaptiveValue("gap", 14, 10, 600, 375);
+}
+
+.field--email {
+	order: 2;
+}
+
+.field--phone {
+	order: 1;
+}
+
+.field--password {
+	order: 3;
+}
+
+.check {
+	margin-top: -6px;
+	order: 4;
+	@media (max-width: toEm($mobileSmall)) {
+		margin-top: 0;
+	}
+}
+
+.register-form__error {
+	order: 5;
+}
+
+.register-form__submit {
+	order: 6;
+}
+
+.register-form__signin {
+	order: 7;
+	& a {
+		color: var(--button-color) !important;
+	}
+}
+
+.field {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 24px 20px 24px 16px;
+	margin: 0;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: 14px;
+	background: var(--bg-input-color);
+	transition:
+		border-color 0.2s ease,
+		margin-bottom 0.2s ease,
+		background-color 0.2s ease;
+	z-index: 0;
+	line-height: 1.2;
+	@media (max-width: toEm($mobileSmall)) {
+		font-size: 14px;
+		padding-block: 16px;
+	}
+}
+
+.field:hover,
+.field:focus-within {
+	border-color: rgba(255, 89, 0, 0.8);
+}
+
+.field.field--invalid {
+	border-color: var(--color-danger);
+	margin-bottom: 14px;
+	z-index: 1;
+}
+.field--password input,
+.field--email input,
+.field--phone input {
+	background-color: transparent;
+	color: #ffffff;
+	outline: none;
+}
+
+.field input {
+	width: 100%;
+	min-width: 0;
+	color: #ffffff;
+	font-size: 16px;
+	line-height: 1.25;
+	font-weight: 500;
+	transition: transform 0.2s ease;
+}
+
+.field--phone input {
+	flex: 1 1 auto;
+}
+
+.field input::placeholder {
+	// color: rgba(255, 255, 255, 0.94);
+}
+
+.field:not(.field--phone) input:not(:placeholder-shown) {
+	transform: translateY(8px);
+}
+.field:not(.field--phone) {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+.field__icon {
+	width: 20px;
+	height: 20px;
+	pointer-events: none;
+	opacity: 0.9;
+}
+.field__phone-prefix {
+	margin-right: 14px;
+}
+.field__phone-flag {
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+}
+
+.field__hidden-placeholder {
+	position: absolute;
+	top: 16px;
+	left: 45px;
+	color: rgba(255, 255, 255, 0.62);
+	font-size: 11px;
+	line-height: 1;
+	opacity: 0;
+	transform: translateY(8px);
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+	pointer-events: none;
+	@media (max-width: toEm($mobileSmall)) {
+		top: 10px;
+	}
+}
+
+.field--phone .field__hidden-placeholder,
+.field--password .field__hidden-placeholder {
+	// display: none;
+}
+
+.field:not(.field--phone) input:not(:placeholder-shown) ~ .field__hidden-placeholder {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.field__toggle {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+	display: grid;
+	place-items: center;
+	width: 20px;
+	height: 20px;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.field__eye {
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+}
+
+.field__error {
+	position: absolute;
+	left: 0;
+	top: calc(100% + 9px);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--color-danger);
+	font-size: 12px;
+	line-height: 14px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(6px);
+	transition:
+		opacity 0.2s ease,
+		visibility 0.2s ease,
+		transform 0.2s ease;
+	z-index: 2;
+	@media (max-width: toEm(1100)) {
+		top: calc(100% + 6px);
+	}
+}
+
+.field__error.shown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.field__error-icon {
+	width: 12px;
+	height: 12px;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.check {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	margin-top: 2px;
+	@media (max-width: toEm(1100)) {
+		justify-content: start;
+		@include adaptiveValue("gap", 12, 6);
+	}
+}
+
+.check.field--invalid {
+	margin-top: 2px;
+	margin-bottom: 14px;
+	z-index: 1;
+}
+
+.check input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.check__box {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	min-width: 28px;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: transparent;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.check:hover .check__box,
+.check:focus-visible .check__box {
+	border-color: var(--button-color);
+}
+
+.check__icon {
+	width: 13px;
+	height: 9px;
+	opacity: 0;
+	transform: scale(0.9);
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+}
+
+.check input:checked + .check__box {
+	border-color: var(--button-color);
+	background: var(--button-color);
+	box-shadow: var(--shadow-soft);
+}
+
+.check input:checked + .check__box .check__icon {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.check__text {
+	font-size: 14px;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #c0c0c0;
+}
+
+.check__text strong {
+	color: var(--button-color);
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+}
+
+.check__text a {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.check__text .field__error {
+	left: 0;
+	top: calc(100% + 7px);
+}
+
+.register-form__error {
+	margin: 0;
+	color: var(--color-danger);
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.register-form__error[hidden] {
+	display: none;
+}
+
+.register-form__submit {
+	@include adaptiveValue("padding-block", 24, 20);
+	padding-inline: 27px;
+	border-radius: 12px;
+	background: var(--button-color);
+	color: #ffffff;
+	font-family: $secondFontFamily;
+	@include adaptiveValue("font-size", 20, 16);
+	font-weight: 700;
+	line-height: 1.18;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease;
+	@media (max-width: toEm($mobile)) {
+		margin-top: 5px;
+	}
+}
+
+.register-form__submit:hover,
+.register-form__submit:focus-visible {
+	background: var(--color-primary-muted);
+}
+
+.register-form__submit:active {
+	transform: translateY(1px);
+}
+
+.register-form__submit svg {
+	display: none;
+}
+
+.register-form__signin {
+	margin-top: 8px;
+	text-align: center;
+	color: #ffffff;
+	font-family: $secondFontFamily;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.register-form__signin a {
+	color: var(--color-primary);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+@media (hover: hover) {
+	.form__shell-action--next:hover {
+		color: var(--color-primary-muted);
+	}
+
+	.form__shell-action--next:hover .form__shell-support {
+		background: var(--color-primary-muted);
+	}
+}
